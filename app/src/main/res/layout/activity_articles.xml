@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCEBB6"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/buttonArticlesTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="статьи"
+        android:backgroundTint="#8BC34A"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/textViewInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(это типо статьи названия их там и тп)"
+        android:layout_below="@id/buttonArticlesTitle"
+        android:layout_alignParentEnd="true"
+        android:rotation="90"
+        android:layout_marginEnd="-60dp"
+        android:layout_marginTop="60dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/buttonArticlesTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp">
+
+        <View
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#455A64"
+            android:layout_marginBottom="16dp"/>
+        <View
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#795548"
+            android:layout_marginBottom="16dp"/>
+        <View
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#BDBDBD"
+            android:layout_marginBottom="16dp"/>
+        <View
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#F48FB1"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

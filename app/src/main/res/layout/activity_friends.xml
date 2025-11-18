@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCEBB6"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="друзья"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/textViewQuote1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="здорово иметь друзей, которые изучают что-то вместе с тобой"
+        android:layout_below="@id/textViewTitle"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewQuote2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="заведи друга и не беспокойся"
+        android:layout_below="@id/textViewQuote1"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/editTextFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="введите почту человека или ник"
+        android:background="#D32F2F"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:layout_below="@id/textViewQuote2"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "884244552555",
+    "project_id": "shashki-be72c",
+    "storage_bucket": "shashki-be72c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884244552555:android:c2f02f1e34ca66cc340a2e",
+        "android_client_info": {
+          "package_name": "com.example.cursach"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSiHeUqfYFuotcasrep47rsQmBVD1k0aw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
