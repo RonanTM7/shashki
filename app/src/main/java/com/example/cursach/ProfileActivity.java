@@ -23,7 +23,12 @@ public class ProfileActivity extends AppCompatActivity {
         TextView usernameTextView = findViewById(R.id.textViewUsername);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
-            usernameTextView.setText(currentUser.getDisplayName());
+            String displayName = currentUser.getDisplayName();
+            if (displayName == null || displayName.isEmpty()) {
+                usernameTextView.setText(currentUser.getEmail());
+            } else {
+                usernameTextView.setText(displayName);
+            }
         }
 
         TextView friendsTextView = findViewById(R.id.textViewFriends);

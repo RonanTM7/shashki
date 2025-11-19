@@ -1,6 +1,8 @@
 package com.example.cursach;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +26,12 @@ public class SettingsActivity extends AppCompatActivity {
 
         TextView passwordTextView = findViewById(R.id.textViewPassword);
         passwordTextView.setText("пароль: password");
+
+        Button changePasswordButton = findViewById(R.id.buttonChangePassword);
+        changePasswordButton.setOnClickListener(v -> {
+            Intent intent = new Intent(SettingsActivity.this, EnterCurrentPasswordActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

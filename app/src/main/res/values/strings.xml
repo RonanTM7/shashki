@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">Cursach</string>
+    <string name="profile_title">Профиль пользователя</string>
+    <string name="username_label">Имя пользователя</string>
+    <string name="progress_label">прогресс:</string>
+    <string name="friends_label">Друзья</string>
+    <string name="checkers_quote">цитата про шашки</string>
+    <string name="change_password_button">Сменить пароль</string>
+    <string name="logout_button">Выход</string>
+    <string name="enter_current_password_title">Введите текущий пароль</string>
+    <string name="forgot_password_link">Забыли пароль?</string>
+    <string name="password_recovery_title">Восстановление пароля</string>
+    <string name="password_recovery_subtitle">Введите почту привязанную к вашему аккаунту, мы пришлем вам ссылку для смены пароля</string>
+    <string name="invalid_email_message">Неверный адрес электронной почты</string>
+    <string name="change_password_title">Изменить пароль</string>
+    <string name="enter_new_password_subtitle">Введите новый пароль, с помощью которого будет осуществляться вход в приложение</string>
+    <string name="new_password_different_message">Новый пароль должен отличаться от старого</string>
+    <string name="confirm_new_password_subtitle">повторите введенный пароль для подтверждения</string>
+    <string name="back_button">Назад</string>
+    <string name="next_button">Далее</string>
+    <string name="incorrect_password">неверный пароль</string>
+    <string name="password_hint">Password</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="email_hint">Email</string>
+    <string name="password_is_required">Password is required</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="please_provide_valid_email">Please provide valid email</string>
+    <string name="password_updated_successfully">Password updated successfully</string>
+    <string name="failed_to_update_password">Failed to update password</string>
+    <string name="check_your_email_to_reset_your_password">Check your email to reset your password!</string>
 </resources>

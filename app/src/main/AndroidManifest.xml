@@ -33,6 +33,10 @@
         <activity android:name=".ArticlesActivity" />
         <activity android:name=".RulesActivity" />
         <activity android:name=".LegendsActivity" />
+        <activity android:name=".EnterCurrentPasswordActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".EnterNewPasswordActivity" />
+        <activity android:name=".ConfirmNewPasswordActivity" />
     </application>
 
 </manifest>
