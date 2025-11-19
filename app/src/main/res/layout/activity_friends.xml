@@ -40,13 +40,21 @@
         android:id="@+id/editTextFriend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="введите почту человека или ник"
-        android:background="#D32F2F"
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
+        android:hint="Введите ник друга для поиска"
         android:padding="12dp"
         android:layout_below="@id/textViewQuote2"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"/>
+
+    <Button
+        android:id="@+id/buttonFindFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Найти"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#808080"
+        android:layout_below="@id/editTextFriend"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
 
 </RelativeLayout>

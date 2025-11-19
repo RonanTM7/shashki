@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCEBB6"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
@@ -83,6 +84,8 @@
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#808080"
         android:text="Register"/>
 
 </LinearLayout>

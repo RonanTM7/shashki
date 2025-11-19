@@ -9,7 +9,7 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ачивки"
+        android:text="Достижения"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="получено"
+            android:text="Получено"
             android:textColor="@android:color/white"
             android:textSize="18sp"/>
 

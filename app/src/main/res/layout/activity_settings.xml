@@ -5,12 +5,14 @@
     android:background="#FCEBB6"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/buttonSettingsTitle"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textViewSettingsTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="настройки"
-        android:backgroundTint="#8BC34A"
+        android:text="Настройки"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="32dp"/>
 
@@ -18,16 +20,17 @@
         android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="почта: ******"
+        android:text="почта: почта@example.com"
         android:textSize="20sp"
-        android:layout_below="@id/buttonSettingsTitle"
+        android:layout_below="@id/textViewSettingsTitle"
         android:layout_marginBottom="16dp"/>
+
 
     <TextView
         android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="пароль: ******"
+        android:text="пароль: "
         android:textSize="20sp"
         android:layout_below="@id/textViewEmail"
         android:layout_marginBottom="32dp"/>
@@ -46,7 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="сменить почту"
-        android:backgroundTint="#BA68C8"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#808080"
         android:layout_below="@id/textViewForgotPassword"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -57,22 +61,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="сменить пароль"
-        android:backgroundTint="#4CAF50"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#808080"
         android:layout_below="@id/buttonChangeEmail"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"/>
 
-    <TextView
-        android:id="@+id/textViewLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="выход"
-        android:textSize="18sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:textColor="@android:color/holo_red_dark"
-        android:clickable="true"
-        android:focusable="true"/>
 
 </RelativeLayout>

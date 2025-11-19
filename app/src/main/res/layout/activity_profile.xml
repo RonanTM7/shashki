@@ -5,22 +5,24 @@
     android:background="#FCEBB6"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/buttonProfileTitle"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textViewProfileTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="профиль"
-        android:backgroundTint="#8BC34A"
+        android:text="Профиль пользователя"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="32dp"/>
 
     <TextView
-        android:id="@+id/textViewNick"
+        android:id="@+id/textViewUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ник"
+        android:text="Имя пользователя"
         android:textSize="20sp"
-        android:layout_below="@id/buttonProfileTitle"
+        android:layout_below="@id/textViewProfileTitle"
         android:layout_marginBottom="16dp"/>
 
     <TextView
@@ -29,14 +31,14 @@
         android:layout_height="wrap_content"
         android:text="прогресс:"
         android:textSize="20sp"
-        android:layout_below="@id/textViewNick"
+        android:layout_below="@id/textViewUsername"
         android:layout_marginBottom="16dp"/>
 
     <TextView
         android:id="@+id/textViewFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="друзья: друзья типо кнопка ведущая на список"
+        android:text="Друзья"
         android:textSize="20sp"
         android:textColor="@android:color/holo_blue_dark"
         android:clickable="true"
@@ -56,29 +58,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"/>
 
-    <TextView
-        android:id="@+id/textViewSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="настройки"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewQuote"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:textColor="@android:color/holo_blue_dark"
-        android:clickable="true"
-        android:focusable="true"/>
 
-    <TextView
-        android:id="@+id/textViewLogout"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="выход"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewSettings"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/holo_red_dark"
-        android:clickable="true"
-        android:focusable="true"/>
+        android:text="Выход"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#808080"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
