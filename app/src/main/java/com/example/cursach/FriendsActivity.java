@@ -105,21 +105,18 @@ public class FriendsActivity extends AppCompatActivity implements UserAdapter.On
         User targetUser = userList.get(position);
         String currentUserId = mAuth.getCurrentUser().getUid();
 
-        // Add to sender's sent requests
         db.collection("userProgress").document(currentUserId)
-                .update("friendRequestsSent", com.google.firebase.firestore.FieldValue.arrayUnion(targetUser.getUserId()));
-
-        // Add to receiver's received requests
-        db.collection("userProgress").document(targetUser.getUserId())
-                .update("friendRequestsReceived", com.google.firebase.firestore.FieldValue.arrayUnion(currentUserId))
+                .update("friendRequestsSent", com.google.firebase.firestore.FieldValue.arrayUnion(targetUser.getUserId()))
                 .addOnSuccessListener(aVoid -> {
-                    // Update local user progress and notify adapter
-                    if (currentUserProgress != null) {
-                        currentUserProgress.getFriendRequestsSent().add(targetUser.getUserId());
-                        userAdapter.updateUserProgress(currentUserProgress);
-                        userAdapter.notifyItemChanged(position);
-                    }
-                    Toast.makeText(this, "Запрос отправлен", Toast.LENGTH_SHORT).show();
+                    db.collection("userProgress").document(targetUser.getUserId())
+                            .update("friendRequestsReceived", com.google.firebase.firestore.FieldValue.arrayUnion(currentUserId))
+                            .addOnSuccessListener(aVoid1 -> {
+                                if (currentUserProgress != null) {
+                                    currentUserProgress.getFriendRequestsSent().add(targetUser.getUserId());
+                                    userAdapter.updateUserProgress(currentUserProgress);
+                                }
+                                Toast.makeText(this, "Запрос отправлен", Toast.LENGTH_SHORT).show();
+                            });
                 });
     }
 }

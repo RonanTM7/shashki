@@ -35,10 +35,10 @@
         android:layout_marginBottom="16dp"/>
 
     <TextView
-        android:id="@+id/textViewProgress"
+        android:id="@+id/textViewAchievements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/progress_label"
+        android:text="@string/achievements_label"
         android:textSize="20sp"
         android:layout_below="@id/textViewUsername"
         android:layout_marginBottom="16dp"/>
@@ -52,8 +52,10 @@
         android:textColor="@android:color/holo_blue_dark"
         android:clickable="true"
         android:focusable="true"
-        android:layout_below="@id/textViewProgress"
-        android:layout_marginBottom="32dp"/>
+        android:layout_below="@id/textViewAchievements"
+        android:layout_marginBottom="16dp"/>
+
+
 
     <TextView
         android:id="@+id/textViewQuote"

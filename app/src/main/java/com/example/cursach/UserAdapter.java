@@ -13,8 +13,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     private List<User> userList;
     private OnSendRequestClickListener listener;
+    private UserProgress currentUserProgress;
 
     public void updateUserProgress(UserProgress currentUserProgress) {
+        this.currentUserProgress = currentUserProgress;
+        notifyDataSetChanged();
     }
 
     public interface OnSendRequestClickListener {
@@ -24,6 +27,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public UserAdapter(List<User> userList, OnSendRequestClickListener listener, UserProgress currentUserProgress) {
         this.userList = userList;
         this.listener = listener;
+        this.currentUserProgress = currentUserProgress;
     }
 
     @NonNull
@@ -37,6 +41,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = userList.get(position);
         holder.textViewUserName.setText(user.getDisplayName());
+
+        if (currentUserProgress != null) {
+            if (currentUserProgress.getFriends().contains(user.getUserId())) {
+                holder.buttonSendRequest.setText("Друзья");
+                holder.buttonSendRequest.setEnabled(false);
+            } else if (currentUserProgress.getFriendRequestsSent().contains(user.getUserId())) {
+                holder.buttonSendRequest.setText("Запрос отправлен");
+                holder.buttonSendRequest.setEnabled(false);
+            } else {
+                holder.buttonSendRequest.setText("Отправить запрос");
+                holder.buttonSendRequest.setEnabled(true);
+            }
+        }
     }
 
     @Override

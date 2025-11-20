@@ -47,6 +47,16 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        TextView achievementsTextView = findViewById(R.id.textViewAchievements);
+        if (currentUser != null) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("userProgress").document(currentUser.getUid()).collection("unlockedAchievements").get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        int achievementsCount = queryDocumentSnapshots.size();
+                        achievementsTextView.setText(getString(R.string.achievements_label, achievementsCount));
+                    });
+        }
+
 
         Button logoutButton = findViewById(R.id.buttonLogout);
         logoutButton.setOnClickListener(v -> {

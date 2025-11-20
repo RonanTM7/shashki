@@ -76,24 +76,24 @@ public class FriendRequestsActivity extends AppCompatActivity implements FriendR
         User sender = requestList.get(position);
         String currentUserId = mAuth.getCurrentUser().getUid();
 
-        // Add to friends for both users
         db.collection("userProgress").document(currentUserId)
-                .update("friends", com.google.firebase.firestore.FieldValue.arrayUnion(sender.getUserId()));
-        db.collection("userProgress").document(sender.getUserId())
-                .update("friends", com.google.firebase.firestore.FieldValue.arrayUnion(currentUserId));
+                .update("friends", com.google.firebase.firestore.FieldValue.arrayUnion(sender.getUserId()))
+                .addOnSuccessListener(aVoid -> {
+                    db.collection("userProgress").document(sender.getUserId())
+                            .update("friends", com.google.firebase.firestore.FieldValue.arrayUnion(currentUserId));
 
-        // Remove from requests
-        db.collection("userProgress").document(currentUserId)
-                .update("friendRequestsReceived", com.google.firebase.firestore.FieldValue.arrayRemove(sender.getUserId()));
-        db.collection("userProgress").document(sender.getUserId())
-                .update("friendRequestsSent", com.google.firebase.firestore.FieldValue.arrayRemove(currentUserId));
+                    db.collection("userProgress").document(currentUserId)
+                            .update("friendRequestsReceived", com.google.firebase.firestore.FieldValue.arrayRemove(sender.getUserId()));
+                    db.collection("userProgress").document(sender.getUserId())
+                            .update("friendRequestsSent", com.google.firebase.firestore.FieldValue.arrayRemove(currentUserId));
 
-        requestList.remove(position);
-        friendRequestAdapter.notifyItemRemoved(position);
+                    requestList.remove(position);
+                    friendRequestAdapter.notifyItemRemoved(position);
 
-        AchievementManager.getInstance().checkFirstFriendAchievement(this);
+                    AchievementManager.getInstance().checkFirstFriendAchievement(this);
 
-        Toast.makeText(this, "Друг добавлен", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Друг добавлен", Toast.LENGTH_SHORT).show();
+                });
     }
 
     @Override
