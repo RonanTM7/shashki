@@ -1,6 +1,7 @@
 package com.example.cursach;
 
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.firestore.DocumentReference;
@@ -12,9 +13,8 @@ public class LegendDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legend_detail);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        ImageButton backButton = findViewById(R.id.buttonBack);
+        backButton.setOnClickListener(v -> onBackPressed());
 
         String legendId = getIntent().getStringExtra("legend_id");
         if (legendId == null) {
@@ -39,9 +39,4 @@ public class LegendDetailActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
 }

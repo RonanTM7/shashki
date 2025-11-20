@@ -3,6 +3,7 @@ package com.example.cursach;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,9 +15,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        ImageButton backButton = findViewById(R.id.buttonBack);
+        backButton.setOnClickListener(v -> onBackPressed());
 
         TextView emailTextView = findViewById(R.id.textViewEmail);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -31,9 +31,4 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
 }

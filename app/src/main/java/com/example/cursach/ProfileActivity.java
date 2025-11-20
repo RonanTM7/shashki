@@ -3,6 +3,7 @@ package com.example.cursach;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,9 +18,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        ImageButton backButton = findViewById(R.id.buttonBack);
+        backButton.setOnClickListener(v -> onBackPressed());
 
         TextView usernameTextView = findViewById(R.id.textViewUsername);
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -59,9 +59,4 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
 }
