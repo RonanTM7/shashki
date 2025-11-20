@@ -24,9 +24,6 @@ public class SettingsActivity extends AppCompatActivity {
             emailTextView.setText("почта: " + currentUser.getEmail());
         }
 
-        TextView passwordTextView = findViewById(R.id.textViewPassword);
-        passwordTextView.setText("пароль: password");
-
         Button changePasswordButton = findViewById(R.id.buttonChangePassword);
         changePasswordButton.setOnClickListener(v -> {
             Intent intent = new Intent(SettingsActivity.this, EnterCurrentPasswordActivity.class);

@@ -4,7 +4,7 @@
     <string name="username_label">Имя пользователя</string>
     <string name="progress_label">прогресс:</string>
     <string name="friends_label">Друзья</string>
-    <string name="checkers_quote">цитата про шашки</string>
+    <string name="new_checkers_quote">Шашки — это диалог умов, где каждая фигура говорит на языке стратегии, а победа — это эхо продуманных решений.</string>
     <string name="change_password_button">Сменить пароль</string>
     <string name="logout_button">Выход</string>
     <string name="enter_current_password_title">Введите текущий пароль</string>
@@ -30,4 +30,6 @@
     <string name="password_updated_successfully">Password updated successfully</string>
     <string name="failed_to_update_password">Failed to update password</string>
     <string name="check_your_email_to_reset_your_password">Check your email to reset your password!</string>
+    <string name="rules_title">Правила игры в шашки</string>
+    <string name="legends_title">Легенды шашек</string>
 </resources>

@@ -37,6 +37,7 @@
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".EnterNewPasswordActivity" />
         <activity android:name=".ConfirmNewPasswordActivity" />
+        <activity android:name=".LegendDetailActivity" />
     </application>
 
 </manifest>

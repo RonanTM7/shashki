@@ -6,10 +6,9 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/textViewRulesTitle"
+        android:id="@+id/textViewLegendName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rules_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -17,10 +16,10 @@
         android:layout_marginBottom="16dp"/>
 
     <TextView
-        android:id="@+id/textViewRulesContent"
+        android:id="@+id/textViewLegendDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewRulesTitle"
+        android:layout_below="@id/textViewLegendName"
         android:textSize="16sp"/>
 
 </RelativeLayout>

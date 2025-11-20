@@ -2,13 +2,14 @@ package com.example.cursach;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileActivity extends AppCompatActivity {
     @Override
@@ -24,10 +25,20 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             String displayName = currentUser.getDisplayName();
-            if (displayName == null || displayName.isEmpty()) {
-                usernameTextView.setText(currentUser.getEmail());
-            } else {
+            if (displayName != null && !displayName.isEmpty()) {
                 usernameTextView.setText(displayName);
+            } else {
+                // Fallback to Firestore
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                DocumentReference docRef = db.collection("users").document(currentUser.getUid());
+                docRef.get().addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String username = documentSnapshot.getString("username");
+                        usernameTextView.setText(username);
+                    } else {
+                        usernameTextView.setText(currentUser.getEmail()); // Fallback to email
+                    }
+                });
             }
         }
 

@@ -48,12 +48,11 @@
 
     <TextView
         android:id="@+id/textViewQuote"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:text="@string/checkers_quote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_checkers_quote"
         android:gravity="center"
-        android:background="#4CAF50"
-        android:textColor="@android:color/white"
+        android:textSize="18sp"
         android:layout_below="@id/textViewFriends"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"/>
@@ -61,11 +60,10 @@
 
     <Button
         android:id="@+id/buttonLogout"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/logout_button"
-        android:background="@android:color/transparent"
-        android:textColor="@android:color/holo_red_dark"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
