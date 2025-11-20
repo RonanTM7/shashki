@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonArticles = findViewById(R.id.buttonArticles);
         Button buttonSettings = findViewById(R.id.buttonSettings);
         Button buttonFriends = findViewById(R.id.buttonFriends);
+        Button buttonFriendRequests = findViewById(R.id.buttonFriendRequests);
 
         buttonAchievements.setOnClickListener(this);
         buttonProgress.setOnClickListener(this);
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonArticles.setOnClickListener(this);
         buttonSettings.setOnClickListener(this);
         buttonFriends.setOnClickListener(this);
+        buttonFriendRequests.setOnClickListener(this);
 
         achievementManager = AchievementManager.getInstance();
     }
@@ -102,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent = new Intent(this, SettingsActivity.class);
         } else if (id == R.id.buttonFriends) {
             intent = new Intent(this, FriendsActivity.class);
+        } else if (id == R.id.buttonFriendRequests) {
+            intent = new Intent(this, FriendRequestsActivity.class);
         }
 
         if (intent != null) {

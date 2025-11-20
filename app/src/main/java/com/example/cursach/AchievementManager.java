@@ -44,6 +44,7 @@ public class AchievementManager {
         allAchievements.add(new Achievement("read_rules", "Подкованный игрок", "Прочитать правила"));
         allAchievements.add(new Achievement("read_5_legends", "Начинающий историк", "Прочитать 5 легенд"));
         allAchievements.add(new Achievement("read_9_legends", "Хранитель легенд", "Прочитать 9 легенд"));
+        allAchievements.add(new Achievement("first_friend", "Новый друг", "Добавить первого друга"));
     }
 
     public List<Achievement> getAllAchievements() {
@@ -103,5 +104,20 @@ public class AchievementManager {
 
     public void checkRulesAchievement(Context context) {
         unlockAchievement(context, "read_rules");
+    }
+
+    public void checkFirstFriendAchievement(Context context) {
+        if (currentUser == null) {
+            return;
+        }
+
+        getUserProgressRef().get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                UserProgress userProgress = documentSnapshot.toObject(UserProgress.class);
+                if (userProgress != null && userProgress.getFriends().size() == 1) {
+                    unlockAchievement(context, "first_friend");
+                }
+            }
+        });
     }
 }
