@@ -12,16 +12,22 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class RulesActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
+
+        AchievementManager achievementManager = AchievementManager.getInstance();
 
         ImageButton backButton = findViewById(R.id.buttonBack);
         backButton.setOnClickListener(v -> onBackPressed());
 
         TextView rulesContent = findViewById(R.id.textViewRulesContent);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        achievementManager.checkRulesAchievement(this);
+        achievementManager.getUserProgressRef().update("readRules", true);
 
         db.collection("rules").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {

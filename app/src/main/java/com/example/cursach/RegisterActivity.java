@@ -20,6 +20,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -140,9 +141,22 @@ public class RegisterActivity extends AppCompatActivity {
 
                         db.collection("users").document(userId).set(user)
                                 .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно.", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                                    finish();
+                                    // Create user progress document
+                                    Map<String, Object> userProgress = new HashMap<>();
+                                    userProgress.put("timeSpentInApp", 0);
+                                    userProgress.put("legendsReadCount", 0);
+                                    userProgress.put("readLegendIds", new ArrayList<>());
+                                    userProgress.put("readRules", false);
+
+                                    db.collection("userProgress").document(userId).set(userProgress)
+                                            .addOnSuccessListener(aVoid1 -> {
+                                                Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно.", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                                                finish();
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                Toast.makeText(RegisterActivity.this, "Ошибка сохранения данных.", Toast.LENGTH_SHORT).show();
+                                            });
                                 })
                                 .addOnFailureListener(e -> {
                                     Toast.makeText(RegisterActivity.this, "Ошибка сохранения данных.", Toast.LENGTH_SHORT).show();

@@ -9,8 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private long startTime;
+    private AchievementManager achievementManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonArticles.setOnClickListener(this);
         buttonSettings.setOnClickListener(this);
         buttonFriends.setOnClickListener(this);
+
+        achievementManager = AchievementManager.getInstance();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startTime = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        long endTime = System.currentTimeMillis();
+        long timeSpent = endTime - startTime;
+
+        DocumentReference userProgressRef = achievementManager.getUserProgressRef();
+        if (userProgressRef != null) {
+            userProgressRef.update("timeSpentInApp", FieldValue.increment(timeSpent))
+                    .addOnSuccessListener(aVoid -> {
+                        userProgressRef.get().addOnSuccessListener(documentSnapshot -> {
+                            if (documentSnapshot.exists()) {
+                                UserProgress userProgress = documentSnapshot.toObject(UserProgress.class);
+                                if (userProgress != null) {
+                                    achievementManager.checkTimeAchievements(this, userProgress.getTimeSpentInApp() / (1000 * 60));
+                                }
+                            }
+                        });
+                    });
+        }
     }
 
     @Override

@@ -28,7 +28,6 @@ public class ProfileActivity extends AppCompatActivity {
             if (displayName != null && !displayName.isEmpty()) {
                 usernameTextView.setText(displayName);
             } else {
-                // Fallback to Firestore
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 DocumentReference docRef = db.collection("users").document(currentUser.getUid());
                 docRef.get().addOnSuccessListener(documentSnapshot -> {
@@ -36,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
                         String username = documentSnapshot.getString("username");
                         usernameTextView.setText(username);
                     } else {
-                        usernameTextView.setText(currentUser.getEmail()); // Fallback to email
+                        usernameTextView.setText(currentUser.getEmail());
                     }
                 });
             }
