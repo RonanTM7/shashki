@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCEBB6"
+    android:background="@color/background_color"
     android:padding="16dp">
 
     <TextView
@@ -60,10 +60,11 @@
 
     <Button
         android:id="@+id/buttonLogout"
-        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/logout_button"
+        android:background="@android:color/transparent"
+        android:textColor="@color/red"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 

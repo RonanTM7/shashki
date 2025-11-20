@@ -31,7 +31,10 @@ public class LegendDetailActivity extends AppCompatActivity {
             if (documentSnapshot.exists()) {
                 Legend legend = documentSnapshot.toObject(Legend.class);
                 legendName.setText(legend.getName());
-                legendDescription.setText(legend.getDescription());
+                String description = legend.getDescription();
+                if (description != null) {
+                    legendDescription.setText(description.replace("\\n", "\n"));
+                }
             }
         });
     }

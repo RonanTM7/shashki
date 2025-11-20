@@ -1,6 +1,10 @@
 package com.example.cursach;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,11 +25,23 @@ public class RulesActivity extends AppCompatActivity {
 
         db.collection("rules").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                StringBuilder rulesText = new StringBuilder();
+                SpannableStringBuilder rulesText = new SpannableStringBuilder();
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    rulesText.append(document.getString("text")).append("\n\n");
+                    String title = document.getString("title");
+                    String text = document.getString("text");
+
+                    if (title != null && !title.isEmpty()) {
+                        int start = rulesText.length();
+                        rulesText.append(title);
+                        rulesText.setSpan(new StyleSpan(Typeface.BOLD), start, rulesText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        rulesText.append("\n");
+                    }
+
+                    if (text != null) {
+                        rulesText.append(text).append("\n\n");
+                    }
                 }
-                rulesContent.setText(rulesText.toString());
+                rulesContent.setText(rulesText);
             }
         });
     }

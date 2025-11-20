@@ -30,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/change_password_button"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#808080"
         android:layout_below="@id/textViewEmail"
         android:layout_marginTop="32dp" />
 
