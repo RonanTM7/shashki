@@ -40,13 +40,13 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         String email = editTextEmail.getText().toString().trim();
 
         if (email.isEmpty()) {
-            editTextEmail.setError("Email is required");
+            editTextEmail.setError("Поле не должно быть пустым");
             editTextEmail.requestFocus();
             return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("Please provide valid email");
+            editTextEmail.setError("Введите корректную почту");
             editTextEmail.requestFocus();
             return;
         }
@@ -55,7 +55,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(ForgotPasswordActivity.this, "Check your email to reset your password!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPasswordActivity.this, "Ссылка для смены пароля была отправленна", Toast.LENGTH_LONG).show();
                 } else {
                     textViewError.setText(R.string.invalid_email_message);
                 }

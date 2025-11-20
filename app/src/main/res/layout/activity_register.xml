@@ -86,6 +86,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
         android:textColor="#808080"
-        android:text="Register"/>
+        android:text="Зарегистрироваться"/>
 
 </LinearLayout>
